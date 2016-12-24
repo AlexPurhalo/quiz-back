@@ -10,3 +10,4 @@ before_install:
 
 script:
   - "rspec"
+  - "sequel -m db/migrations/ sqlite://db/test_db.db"

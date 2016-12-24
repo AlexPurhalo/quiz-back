@@ -4,9 +4,11 @@
     $ git clone https://github.com/AlexPurhalo/quiz-back.git
     $ cd quiz-back
     $ bundle install
+    $ sequel -m db/migrations/ sqlite://db/database.db
     $ foreman start
     
 ### Testing
+    $ sequel -m db/migrations/ sqlite://db/test.db
     $ rspec
     
 
