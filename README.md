@@ -9,3 +9,7 @@
 ### Testing
     $ rspec
     
+
+#### CI (Continuous Integration)
+[link to travis](https://travis-ci.org/AlexPurhalo/quiz-back)
+    
