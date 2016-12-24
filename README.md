@@ -5,3 +5,7 @@
     $ cd quiz-back
     $ bundle install
     $ foreman start
+    
+### Testing
+    $ rspec
+    
