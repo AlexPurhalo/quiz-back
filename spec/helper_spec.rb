@@ -6,6 +6,7 @@ Bundler.require
 Bundler.require :test
 
 require 'rspec'
+require 'active_model'
 require 'rack/test'
 require 'database_cleaner'
 
