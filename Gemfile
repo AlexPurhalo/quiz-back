@@ -22,3 +22,5 @@ group :test do
 end
 
 gem 'grape-rabl', '~> 0.4.2', require: 'grape/rabl'
+
+gem 'rack-cors', '~> 0.4.0', :require => 'rack/cors'

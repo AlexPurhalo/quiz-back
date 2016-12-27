@@ -6,10 +6,20 @@ require 'sequel'
 require 'active_model'
 require 'rabl'
 require 'grape/rabl'
+require 'rack/cors'
 
 DB = Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://db/database.db')
 
 require './app/core'
+
+use Rack::Cors do
+  allow do
+    origins '*'
+    resource '*',
+             :headers => :any,
+             :methods => [:get, :post, :delete, :put, :options]
+  end
+end
 
 use Rack::Config do |env|
   env['api.tilt.root'] = 'app/views'
