@@ -8,8 +8,8 @@ class Categories < Grape::API
       @category = Category.create(title: params[:title])
     end
 
-    get '/:id', rabl: 'categories/show' do
-      @category = Category[params[:id]]
+    get '/:id' do
+      @category = Category[params[:id]].values
     end
 
     post '/:id/questions', rabl: 'questions/show' do
