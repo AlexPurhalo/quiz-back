@@ -1,6 +1,10 @@
 require 'helper_spec'
 
 describe 'POST category' do
+  before { Categories.before { env["api.tilt.root"] = "app/views" } }
+
+  def app; Categories end
+
   it 'renders crated category' do
     post '/categories', title: 'some_title'
 

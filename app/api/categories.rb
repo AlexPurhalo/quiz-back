@@ -1,26 +1,26 @@
 class Categories < Grape::API
   resources :categories do
-    get '/' do
-      @categories = Category.map { |category| category.values }
+    get '/', rabl: 'categories/index' do
+      @categories = Category.all
     end
 
-    post '/' do
-      @category = Category.create(title: params[:title]).values
+    post '/', rabl: 'categories/show' do
+      @category = Category.create(title: params[:title])
     end
 
-    get '/:id' do
-      @category = Category[params[:id]].values
+    get '/:id', rabl: 'categories/show' do
+      @category = Category[params[:id]]
     end
 
-    post '/:id/questions' do
+    post '/:id/questions', rabl: 'questions/show' do
       @category = Category[params[:id]]
       @question = Question.create(description: params[:description], answer: params[:answer])
-      @category_question = @category.add_question(@question)
-      @category_question.values
+      @category.add_question(@question)
+      @question
     end
 
-    get ':id/questions' do
-      @category_questions = Category[params[:id]].questions.map { |questions| questions.values }
+    get ':id/questions', rabl: 'questions/index' do
+      @questions = Category[params[:id]].questions_dataset
     end
   end
 end

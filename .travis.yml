@@ -9,5 +9,5 @@ before_install:
   - bundle install
 
 script:
+  - "sequel -m db/migrations/ sqlite://db/test.db"
   - "rspec"
-  - "sequel -m db/migrations/ sqlite://db/test_db.db"

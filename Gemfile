@@ -20,3 +20,5 @@ gem 'racksh'
 group :test do
   gem 'database_cleaner'
 end
+
+gem 'grape-rabl', '~> 0.4.2', require: 'grape/rabl'
